@@ -1,0 +1,155 @@
+{% extends 'main/base.html' %}
+{% block title %}NOVELER{% endblock %}
+
+{% block body %}
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+
+				<!-- Banner -->
+					<section id="banner" class="major">
+						<div class="inner">
+							<header class="major">
+								<h1>Noveler</h1>
+                                {% if user.is_authenticated %}
+                                <h3>      welcome {{ user.username }}</h3>
+                                {% endif %}
+							</header>
+							<div class="content">
+								<p>Creative<br />
+								Novel</p>
+								<ul class="actions">
+									<li><a href="#two" class="button next scrolly">Get Started</a></li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+							<section id="forum">
+								<div class="inner">
+									<header class="forum">
+										<center><h1>Today's Topic</h1></center>
+									</header>
+
+
+									<div class="box">
+									<p>
+										포럼페이지에서 자동으로 내용 가져오는 형식으로 ...
+									</p>
+									</div>
+
+
+									<div class="field">
+										<label for="message">Comments</label>
+										<textarea name="message" id="message" rows="4"></textarea>
+									</div>
+
+
+
+
+									<div>
+									<form><input type="submit" value="Submit" class="button "/></form>
+									</div>
+
+
+									<div>
+
+										<center><a href="#" class="button special small">More</a></center>
+									</div>
+
+
+								</div>
+							</section>
+
+				<!-- Main -->
+					<div id="main">
+
+
+
+
+
+						<!-- One -->
+							<section id="two" class="tiles">
+								<article>
+									<span class="image">
+										<img src="#" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="{% url 'main:history' %}" class="link">History</a></h3>
+										<p>History of Noveler</p>
+										<p>We are now moving</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="#" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="{% url 'development:index' %}" class="link">Development</a></h3>
+										<p>Psycoder of Noveler</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="#" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="#" class="link">Gallery</a></h3>
+										<p>Our photo is here</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="#" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="#" class="link">Contact</a></h3>
+										<p>Contact of Noveler</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="#" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="#" class="link">미정</a></h3>
+										<p>미정</p>
+									</header>
+								</article>
+								<article>
+									<span class="image">
+										<img src="#" alt="" />
+									</span>
+									<header class="major">
+										<h3><a href="#" class="link">미정</a></h3>
+										<p>미정</p>
+									</header>
+								</article>
+							</section>
+
+
+					</div>
+
+				<!-- Contact -->
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li>
+								<li>Design: <a href="{% url 'main:index' %}">NOVELER</a></li>
+
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+{% endblock %}

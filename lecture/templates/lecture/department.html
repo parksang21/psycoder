@@ -1,0 +1,82 @@
+{% extends 'main/base.html' %}
+{% block title %}DEVELOPMENT{% endblock %}
+
+{% block body %}
+		<!-- Wrapper -->
+			<div id="wrapper">
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style2">
+						<div class="inner">
+							<span class="image">
+								<img src="#" alt="" />
+							</span>
+							<header class="major">
+								<h1>Department</h1>
+							</header>
+							<div class="content">
+								<p>CREATIVE<br />
+								NOVELER</p>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>PSYCODER</h2>
+									</header>
+									<p>NOVELER에는 현재 기획, 마케팅, 디자인, 개발 총 4개의 부서가 있으며 <br/>
+									 각 부서별 주 1회 스터디와 동아리 전체의 주 1회 정기모임을 원칙으로 하고 있습니다.</p>
+								</div>
+							</section>
+
+						<!-- Two -->
+
+							<section id="two" class="spotlights">
+                                {% for category in categories %}
+                                <section>
+									<a href="#" class="image">
+										<img src="{{ category.category_logo }}" alt=""  />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h2>{{ category.category_title }}</h2>
+											</header>
+											<ul class="actions">
+												<li><a href="{% url 'development:course-list' category.pk %}" class="button">자세히 보기</a></li>
+											</ul>
+										</div>
+									</div>
+                                </section>
+                                {% endfor %}
+                            </section>
+
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="#" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							</ul>
+							<ul class="copyright">
+								<li>&copy; Untitled</li>
+								<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+								
+							</ul>
+						</div>
+					</footer>
+
+			</div>
+{% endblock %}

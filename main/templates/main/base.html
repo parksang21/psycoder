@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+
+
+            {% load staticfiles %}
+		<title>{% block title %}NOVELER{% endblock %}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="{% static 'main/main.css' %}" />
+
+    <!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'js/skel.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="{% static 'js/ie/respond.min.js' %}"></script><![endif]-->
+			<script src="{% static 'js/main.js' %}"></script>
+
+
+		<style>
+		#forum{
+		background-color: #2a2f4a;
+		text-align: center;
+		align-items: center;
+		}
+		</style>
+    {% block head %}
+    {% endblock %}
+
+
+	</head>
+
+<body>
+	<!-- Header -->
+					<header id="header" class="alt">
+						<a href="{% url 'main:index' %}" class="logo"><strong>NOVELER</strong> <span>by PSYCODER</span></a>
+
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="{% url 'main:history' %}">History</a></li>
+							<li><a href="{% url 'development:index' %}">Department</a></li>
+							<li><a href="#">Gallery</a></li>
+							<li><a href="#">Contact</a></li>
+						</ul>
+						<ul class="actions vertical">
+							<li><a href="{% url 'main:signup' %}" class="button fit">Sign Up</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url 'main:logout' %}" class="button fit">Log out</a></li>
+                            {% else %}
+							<li><a href="{% url 'main:login' %}" class="button fit">Log In</a></li>
+                            {% endif %}
+						</ul>
+					</nav>
+
+{% block body %}{% endblock %}
+</body>
+
+</html>

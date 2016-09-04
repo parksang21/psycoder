@@ -1,0 +1,28 @@
+def login(request):
+    if request.method == 'POST':
+        login_form = LoginForm(request.POST)
+
+        if login_form.is_valid():
+                email = request.POST.get('login_email')
+                password = request.POST.get('login_password')
+
+                if request.GET.get('from'):
+                    linked_from = request.GET.get('from')
+                else:
+                    linked_from = False
+
+
+                user = auth.authenticate(email=email, password=password)
+
+                auth.login(request, user)
+
+                if linked_from:
+                    return HttpResponseRedirect(linked_from)
+                else:
+                    return HttpResponseRedirect('/')
+        else:
+            login_form = LoginForm()
+
+        return render(request, 'main/login.html', {
+        'login_form': login_form,
+          })

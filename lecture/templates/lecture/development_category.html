@@ -1,0 +1,96 @@
+{% extends 'main/base.html' %}
+{% block title %}{{ category.category_title }}{% endblock %}
+
+{% block head %}
+	<style>
+		header, section, nav, footer{
+			display: block;
+		}
+		
+		#bottom_menu{
+			margin-top: 100px;
+			margin-left: 10px;
+			margin-right: 100px;
+			height: 150px;
+			width: 1500px;
+			
+		}
+		
+		#bottom_menu ul li{
+			list-style: none;
+			color: white;
+			background-color: transparent;
+			float: left;
+			line-height: 150px;
+			vertical-align: middle;
+			text-align: center;
+		}
+		
+		#bottom_menu .menulink{
+			border: 0 solid black;
+			text-decoration: none;
+			color: white;
+			display: block;
+			width: 320px;
+			font-size: 50px;
+			font-weight: bold;
+		}
+	
+		#content{
+			display: table;
+			margin-top: 150px;
+			margin-left: 100px;
+			
+		}
+		
+		#main content{
+			display: table-cell;
+			
+		}
+		
+		table, th, td{
+			border: 25 solid white;
+			
+		}
+		
+		table{
+			width: 1150px;
+		}
+		th{
+			height: 50px;
+			vertical-align: middle;
+		}
+	</style>
+{% endblock %}
+{% block body %}
+    				<!-- Categories -->
+				
+					<section id="bottom_menu">
+						<ul>
+							<li><a class="menulink" href="{% url 'development:course-list' category.id %}"><span class="image"><img src="{{ category.category_logo }}" width="300" height="200">{{ category }}</span></a></li>
+
+						</ul>
+					</section>
+				
+	
+					<!-- Main Content -->
+						<section id=content>
+							<!-- 게시글이 순서대로 나열될 것임. -->
+						  <div id="main content">
+							<table>
+								<tr>
+									<th>게시글</th>
+									<th>| 날짜</th>
+								</tr>
+                                {% for course in category.course_set.all %}
+								<tr>
+									<td>{{ course.pk }} - {{ course.course_title }}</td>
+									<td><time datetime="2016-08-31T13:49:55+01:00">{{ course.course_add }}</time></td>
+                                </tr>
+                                {% endfor %}
+							</table>	
+						 </div>
+						</section>
+
+	
+{% endblock %}
